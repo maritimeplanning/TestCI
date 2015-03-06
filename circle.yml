@@ -1,5 +1,15 @@
+# test:
+#   post:
+#     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+#     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+#     - find . -type f -regex ".*/target/.*jar" -exec cp {} $CIRCLE_ARTIFACTS/ \;
+
+general:
+  artifacts:
+    - "build/libs"
+
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-    - find . -type f -regex ".*/target/.*jar" -exec cp {} $CIRCLE_ARTIFACTS/ \;
+    - find . -type f -regex ".*build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - gradle jar # make the jar file
