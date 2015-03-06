@@ -1,0 +1,6 @@
+
+
+# Gradle
+/.nb-gradle/profiles/private/
+/.nb-gradle/private/
+build/
