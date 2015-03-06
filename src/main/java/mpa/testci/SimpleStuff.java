@@ -15,13 +15,13 @@ package mpa.testci;
 public class SimpleStuff {
 
     public static double arraySum(double... vals) {
-        double ret = vals[0];
+        double ret = vals[0]
         for (int i = 1; i < vals.length; i++) {
             ret += vals[i];
         }
         return ret;
     }
-    
+
     public static double arraySub(double... vals) {
         double ret = vals[0];
         for (int i = 1; i < vals.length; i++) {
@@ -29,7 +29,7 @@ public class SimpleStuff {
         }
         return ret;
     }
-    
+
     public static double arrayProduct(double... vals) {
         double ret = vals[0];
         for (int i = 1; i < vals.length; i++) {
@@ -37,5 +37,5 @@ public class SimpleStuff {
         }
         return ret;
     }
-    
+
 }
