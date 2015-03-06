@@ -15,7 +15,7 @@ package mpa.testci;
 public class SimpleStuff {
 
     public static double arraySum(double... vals) {
-        double ret = vals[0]
+        double ret = vals[0];
         for (int i = 1; i < vals.length; i++) {
             ret += vals[i];
         }

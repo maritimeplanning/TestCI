@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author CBM <cmueller@asascience.com>
  */
 public class SimpleStuffTest {
-    
+
     public SimpleStuffTest() {
     }
 
@@ -23,7 +23,7 @@ public class SimpleStuffTest {
     @org.junit.Test
     public void testArraySum() {
         System.out.println("arraySum");
-        double[] vals = new double[]{2, 4, 8};
+        double[] vals = new double[]{2, 4, 9};
         double expResult = 14;
         double result = SimpleStuff.arraySum(vals);
         assertEquals(expResult, result, 0.0);
@@ -52,5 +52,5 @@ public class SimpleStuffTest {
         double result = SimpleStuff.arrayProduct(vals);
         assertEquals(expResult, result, 0.0);
     }
-    
+
 }
