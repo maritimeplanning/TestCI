@@ -23,7 +23,7 @@ public class SimpleStuffTest {
     @org.junit.Test
     public void testArraySum() {
         System.out.println("arraySum");
-        double[] vals = new double[]{2, 4, 9};
+        double[] vals = new double[]{2, 4, 8};
         double expResult = 14;
         double result = SimpleStuff.arraySum(vals);
         assertEquals(expResult, result, 0.0);
