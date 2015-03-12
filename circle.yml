@@ -3,3 +3,11 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - find . -type f -regex ".*/target/.*jar" -exec cp {} $CIRCLE_ARTIFACTS/ \;
+deployment:
+  master:
+    branch: master
+    owner: maritimeplanning
+    commands:
+      - ./write_settings
+      - mvn deploy -s ./settings.xml
+      - rm ./settings.xml

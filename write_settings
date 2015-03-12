@@ -1,0 +1,15 @@
+#!/bin/sh
+echo "<settings>
+    <servers>
+        <server>
+            <id>mpa_ftp</id>
+            <username>\${MVN_DEP_UNAME}</username>
+            <password>\${MVN_DEP_PW}</password>
+        </server>
+        <server>
+            <id>mpa_ftp_snap</id>
+            <username>\${MVN_DEP_UNAME}</username>
+            <password>\${MVN_DEP_PW}</password>
+        </server>
+    </servers>
+</settings>" > settings.xml
