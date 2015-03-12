@@ -18,4 +18,15 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+    <distributionManagement>
+        <!-- Add MPA repositories -->
+        <repository>
+            <id>mpa_ftp</id>
+            <url>sftp://03bfc9c.netsolhost.com/release_repo</url>
+        </repository>
+        <snapshotRepository>
+            <id>mpa_ftp</id>
+            <url>sftp://03bfc9c.netsolhost.com/snapshot_repo</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
