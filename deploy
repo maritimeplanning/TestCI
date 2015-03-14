@@ -1,0 +1,96 @@
+#!/bin/sh
+
+## Write depset.xml file
+echo "Write depset.xml..."
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<settings xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd\" xmlns=\"http://maven.apache.org/SETTINGS/1.1.0\"
+    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">
+  <servers>
+    <!-- Deploy -->
+    <server>
+      <username>deployer</username>
+      <password>${DEP_PW}</password>
+      <id>maritimeplanning</id>
+    </server>
+    <!-- Repo access -->
+    <server>
+      <username>reader</username>
+      <password>${RDR_PW}</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>reader</username>
+      <password>${RDR_PW}</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-releases</name>
+          <url>http://maritimeplanning.artifactoryonline.com/maritimeplanning/libs-releases</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshots</name>
+          <url>http://maritimeplanning.artifactoryonline.com/maritimeplanning/libs-snapshots</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>plugins-releases</name>
+          <url>http://maritimeplanning.artifactoryonline.com/maritimeplanning/plugins-releases</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>plugins-snapshots</name>
+          <url>http://maritimeplanning.artifactoryonline.com/maritimeplanning/plugins-snapshots</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
+" > depset.xml
+
+## Run the deployment - capture the exit code, this is how we want to exit
+mvn deploy -s depset.xml; ec=$?
+# if [ $ec != 0 ]; then
+#     exit $ec
+# fi
+
+## Cleanup
+echo "Remove depset.xml..."
+rm depset.xml
+
+exit $ec
+
+# echo "<settings>
+#    <servers>
+#        <server>
+#            <id>mpa_ftp</id>
+#            <username>\${MVN_DEP_UNAME}</username>
+#            <password>\${MVN_DEP_PW}</password>
+#        </server>
+#        <server>
+#            <id>mpa_ftp_snap</id>
+#            <username>\${MVN_DEP_UNAME}</username>
+#            <password>\${MVN_DEP_PW}</password>
+#        </server>
+#    </servers>
+#</settings>" > settings.xml

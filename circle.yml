@@ -8,6 +8,4 @@ deployment:
     branch: master
     owner: maritimeplanning
     commands:
-      - ./write_settings
-      - mvn deploy -s ./settings.xml
-      - rm ./settings.xml
+      - ./deploy
