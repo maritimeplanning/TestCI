@@ -8,4 +8,4 @@ deployment:
     branch: master
     owner: maritimeplanning
     commands:
-      - ./deploy
+      - ./.deploy
