@@ -19,17 +19,29 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
-    <!-- <distributionManagement>
-        Add MPA repositories
-        <repository>
-            <id>mpa_ftp</id>
-            <url>sftp://03bfc9c.netsolhost.com/release_repo</url>
-        </repository>
-        <snapshotRepository>
-            <id>mpa_ftp</id>
-            <url>sftp://03bfc9c.netsolhost.com/snapshot_repo</url>
-        </snapshotRepository>
-    </distributionManagement> -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.4.201502262128</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <distributionManagement>
         <repository>

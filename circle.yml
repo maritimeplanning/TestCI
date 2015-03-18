@@ -2,6 +2,7 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - cp -R target/site/jacoco $CIRCLE_ARTIFACTS;
     - find . -type f -regex ".*/target/.*jar" -exec cp {} $CIRCLE_ARTIFACTS/ \;
 deployment:
   master:
