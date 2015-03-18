@@ -8,19 +8,19 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
   <servers>
     <!-- Deploy -->
     <server>
-      <username>deployer</username>
-      <password>${DEP_PW}</password>
+      <username>artuser</username>
+      <password>${ART_PW}</password>
       <id>maritimeplanning</id>
     </server>
     <!-- Repo access -->
     <server>
-      <username>reader</username>
-      <password>${RDR_PW}</password>
+      <username>artuser</username>
+      <password>${ART_PW}</password>
       <id>central</id>
     </server>
     <server>
-      <username>reader</username>
-      <password>${RDR_PW}</password>
+      <username>artuser</username>
+      <password>${ART_PW}</password>
       <id>snapshots</id>
     </server>
   </servers>
